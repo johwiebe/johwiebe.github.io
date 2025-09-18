@@ -4,7 +4,10 @@ import icon from "astro-icon";
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://johwiebe.github.io',
+  site: 'https://johanneswiebe.github.io',
+  build: {
+    assets: '_astro'
+  },
   integrations: [tailwind(), mdx(), icon({
     include: {
       mdi: ["*"]
