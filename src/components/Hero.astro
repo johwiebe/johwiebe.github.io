@@ -1,0 +1,44 @@
+---
+import heroImage from '@assets/images/hero.png';
+import heroImageDark from '@assets/images/hero-dark.png';
+import Button from '@components/ui/Button.astro';
+import { Image } from 'astro:assets';
+---
+
+<section
+	data-testid="hero"
+	class="flex h-screen flex-col-reverse items-center justify-center text-center lg:flex-row"
+>
+	<div class="mb-10 flex flex-col items-center lg:mb-0 lg:w-1/2">
+		<div>
+			<h1 class="mb-10 font-monospace text-3xl text-black dark:text-white lg:text-5xl">
+				Hi! I'm <span class="text-orange">Johannes</span>.
+			</h1>
+		</div>
+		<div class="mb-10">
+			<Button style={'primary'} size={'lg'} class={'flex'} name="learn more" href="#about">Learn more</Button>
+		</div>
+	</div>
+	<div data-testid="hero-img" class="mb-10 flex w-full items-center justify-center lg:w-1/2">
+		{/* Light mode image */}
+		<Image
+			src={heroImage}
+			alt="Coding girl"
+			format="png"
+			width={600}
+			height={600}
+			loading="eager"
+			class="block dark:hidden"
+		/>
+		{/* Dark mode image */}
+		<Image
+			src={heroImageDark}
+			alt="Coding girl"
+			format="png"
+			width={600}
+			height={600}
+			loading="eager"
+			class="hidden dark:block"
+		/>
+	</div>
+</section>

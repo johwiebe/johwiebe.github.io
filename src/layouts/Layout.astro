@@ -1,0 +1,65 @@
+---
+import Navbar from '@components/Navbar.astro';
+import { SEO } from 'astro-seo';
+
+export interface LayoutProps {
+	title: string;
+}
+
+const { title = 'Johannes Wiebe | Staff Engineer' } = Astro.props as LayoutProps;
+---
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth" data-testid="html">
+	<head>
+		<SEO
+			title="A Very Descriptive Title"
+			description="A heavily optimized description full of well-researched keywords."
+		/>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="generator" content={Astro.generator} />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+		<title>{title}</title>
+	</head>
+	<body
+		class="bg-[#e7e4e0] font-sans text-white dark:bg-[#010101] xs:text-[16px] md:text-[18px]"
+	>
+		<div class="fixed top-0 left-0 right-0 z-50 bg-[#e7e4e0]/80 dark:bg-[#010101]/80 backdrop-blur-sm px-5">
+			<Navbar />
+		</div>
+		<slot />
+		<style is:global>
+			/* Improve Page speed */
+			/* https://css-tricks.com/almanac/properties/c/content-visibility/ */
+			img {
+				content-visibility: auto;
+			}
+			
+			/* Smooth scrolling */
+			html {
+				scroll-behavior: smooth;
+			}
+			
+			/* Snappy scrolling between sections */
+			section {
+				scroll-snap-align: start;
+			}
+			
+			main {
+				scroll-snap-type: y mandatory;
+				height: 100vh;
+				width: 100vw;
+				overflow-y: auto;
+				margin: 0;
+				padding: 0;
+			}
+			
+			body {
+				overflow: hidden;
+			}
+		</style>
+	</body>
+</html>
