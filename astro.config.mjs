@@ -5,7 +5,6 @@ import { defineConfig } from 'astro/config';
 
 export default defineConfig({
   site: 'https://johwiebe.github.io',
-  base: '/johwiebe',
   integrations: [tailwind(), mdx(), icon({
     include: {
       mdi: ["*"]
