@@ -34,6 +34,7 @@ const baseClasses = [
 		href={href}
 		{...rest}
 		class:list={baseClasses}
+		onclick={href.startsWith('#') ? `event.preventDefault(); document.querySelector('${href}')?.scrollIntoView({ behavior: 'smooth' });` : undefined}
 		><slot />
 	</a>
 ) : (
